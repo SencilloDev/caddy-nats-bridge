@@ -8,6 +8,7 @@ require (
 	github.com/caddyserver/caddy/v2 v2.7.4
 	github.com/nats-io/nats.go v1.33.1
 	github.com/nats-io/nuid v1.0.1
+	github.com/segmentio/ksuid v1.0.4
 	go.uber.org/zap v1.27.0
 )
 
