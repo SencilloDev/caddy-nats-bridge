@@ -9,7 +9,7 @@ import (
 	"strings"
 	"testing"
 
-	_ "github.com/CoverWhale/caddy-nats-bridge"
+	_ "github.com/SencilloDev/caddy-nats-bridge"
 	"github.com/caddyserver/caddy/v2/caddytest"
 )
 

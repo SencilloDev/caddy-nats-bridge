@@ -3,7 +3,7 @@ package natsbridge
 import (
 	"encoding/json"
 
-	"github.com/CoverWhale/caddy-nats-bridge/subscribe"
+	"github.com/SencilloDev/caddy-nats-bridge/subscribe"
 	"github.com/caddyserver/caddy/v2/caddyconfig"
 	"github.com/caddyserver/caddy/v2/caddyconfig/caddyfile"
 	"github.com/caddyserver/caddy/v2/caddyconfig/httpcaddyfile"
