@@ -70,6 +70,7 @@ func (p Request) ServeHTTP(w http.ResponseWriter, r *http.Request, next caddyhtt
 	if err != nil {
 		return err
 	}
+	w.Header().Add("X-Request-ID", msg.Header.Get("X-Request-ID"))
 
 	resp, err := server.Conn.RequestMsg(msg, p.Timeout)
 	if err != nil && errors.Is(err, nats.ErrNoResponders) {
