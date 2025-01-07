@@ -59,7 +59,6 @@ func (p Request) ServeHTTP(w http.ResponseWriter, r *http.Request, next caddyhtt
 	subj := repl.ReplaceAll(p.Subject, "")
 
 	//p.logger.Debug("publishing NATS message", zap.String("subject", subj), zap.Bool("with_reply", p.WithReply), zap.Int64("timeout", p.Timeout))
-	p.logger.Debug("publishing NATS message", zap.String("subject", subj))
 
 	server, ok := p.app.Servers[p.ServerAlias]
 	if !ok {
@@ -71,6 +70,7 @@ func (p Request) ServeHTTP(w http.ResponseWriter, r *http.Request, next caddyhtt
 		return err
 	}
 	w.Header().Add("X-Request-ID", msg.Header.Get("X-Request-ID"))
+	p.logger.Debug("publishing NATS message", zap.String("subject", subj), zap.String("request_id", msg.Header.Get("X-Request-ID")))
 
 	resp, err := server.Conn.RequestMsg(msg, p.Timeout)
 	if err != nil && errors.Is(err, nats.ErrNoResponders) {
