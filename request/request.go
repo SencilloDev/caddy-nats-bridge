@@ -76,7 +76,7 @@ func (p Request) ServeHTTP(w http.ResponseWriter, r *http.Request, next caddyhtt
 	if err != nil && errors.Is(err, nats.ErrNoResponders) {
 		w.WriteHeader(http.StatusNotFound)
 		p.logger.Warn("No Responders for NATS subject - answering with HTTP Status Not Found.", zap.String("subject", subj))
-		return err
+		return nil
 	}
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
